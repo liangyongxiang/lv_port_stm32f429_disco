@@ -10,28 +10,6 @@ RM := rm -rf
 -include sources.mk
 -include startup/subdir.mk
 -include src/subdir.mk
--include Utilities/STM32F429I-Discovery/subdir.mk
--include Utilities/Log/subdir.mk
--include Utilities/Components/wm8994/subdir.mk
--include Utilities/Components/ts3510/subdir.mk
--include Utilities/Components/stmpe811/subdir.mk
--include Utilities/Components/stmpe1600/subdir.mk
--include Utilities/Components/st7789h2/subdir.mk
--include Utilities/Components/st7735/subdir.mk
--include Utilities/Components/s5k5cag/subdir.mk
--include Utilities/Components/ov2640/subdir.mk
--include Utilities/Components/otm8009a/subdir.mk
--include Utilities/Components/mfxstm32l152/subdir.mk
--include Utilities/Components/lsm303dlhc/subdir.mk
--include Utilities/Components/ls016b8uy/subdir.mk
--include Utilities/Components/lis3dsh/subdir.mk
--include Utilities/Components/lis302dl/subdir.mk
--include Utilities/Components/l3gd20/subdir.mk
--include Utilities/Components/ili9341/subdir.mk
--include Utilities/Components/ili9325/subdir.mk
--include Utilities/Components/ft6x06/subdir.mk
--include Utilities/Components/exc7200/subdir.mk
--include Utilities/Components/cs43l22/subdir.mk
 -include HAL_Driver/Src/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -50,13 +28,13 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: stm32_lvgl.elf
+all: stm32f429_disco_no_os_sw4stm32.elf
 
 # Tool invocations
-stm32_lvgl.elf: $(OBJS) $(USER_OBJS) /home/kisvegabor/stm32_workspace_2/stm32_lvgl/LinkerScript.ld
+stm32f429_disco_no_os_sw4stm32.elf: $(OBJS) $(USER_OBJS) C:\Users\liangyongxiang\work\project\lvgl_v6_vs_v7\lv_port_stm32f429_disco_v6/LinkerScript.ld
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU GCC Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"/home/kisvegabor/stm32_workspace_2/stm32_lvgl/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "stm32_lvgl.elf" @"objects.list" $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"C:/Users/liangyongxiang/work/project/lvgl_v6_vs_v7/lv_port_stm32f429_disco_v6/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "stm32f429_disco_no_os_sw4stm32.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -68,8 +46,8 @@ clean:
 
 post-build:
 	-@echo 'Generating binary and Printing size information:'
-	arm-none-eabi-objcopy -O binary "stm32_lvgl.elf" "stm32_lvgl.bin"
-	arm-none-eabi-size -B "stm32_lvgl.elf"
+	arm-none-eabi-objcopy -O binary "stm32f429_disco_no_os_sw4stm32.elf" "stm32f429_disco_no_os_sw4stm32.bin"
+	arm-none-eabi-size -B "stm32f429_disco_no_os_sw4stm32.elf"
 	-@echo ' '
 
 .PHONY: all clean dependents

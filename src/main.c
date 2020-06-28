@@ -17,7 +17,6 @@
 #include "hal_stm_lvgl/tft/tft.h"
 #include "hal_stm_lvgl/touchpad/touchpad.h"
 
-#include "lv_examples/lv_apps/demo/demo.h"
 #include "lv_examples/lv_apps/benchmark/benchmark.h"
 
 static void SystemClock_Config(void);
@@ -42,9 +41,19 @@ int main(void)
 	tft_init();
 	touchpad_init();
 
-	demo_create();
-
-//	benchmark_create();
+	//demo_create();
+	//benchmark_create();
+	lv_test_win_1();
+	lv_test_btn_1();
+	lv_test_btnm_1();
+	lv_test_cont_1();
+	lv_test_img_1();
+	lv_test_imgbtn_1();
+	lv_test_page_1();
+	lv_test_roller_1();
+	lv_test_ddlist_1();
+	lv_test_slider_1();
+	lv_test_line_1();
 
 	while (1)
 	{
