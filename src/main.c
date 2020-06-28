@@ -43,7 +43,20 @@ int main(void)
 	tft_init();
 	touchpad_init();
 
-	lv_demo_widgets();
+	//lv_demo_widgets();
+	//lv_demo_benchmark();
+	//demo_create();
+	lv_ex_btn_1();
+	lv_ex_dropdown_1();
+	lv_ex_win_1();
+	lv_ex_btnmatrix_1();
+	lv_ex_cont_1();
+	lv_ex_img_1();
+	lv_ex_imgbtn_1();
+	lv_ex_page_1();
+	lv_ex_roller_1();
+	lv_ex_slider_1();
+	lv_ex_line_1();
 
 	while (1)
 	{
