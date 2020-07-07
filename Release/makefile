@@ -31,10 +31,10 @@ endif
 all: lv_port_stm32f429_disco.elf
 
 # Tool invocations
-lv_port_stm32f429_disco.elf: $(OBJS) $(USER_OBJS) C:\Users\liangyongxiang\work\project\lvgl_v6_vs_v7\lv_port_stm32f429_disco_v7/LinkerScript.ld
+lv_port_stm32f429_disco.elf: $(OBJS) $(USER_OBJS) C:\Users\Tanek\work\lvgl_size_compare\lv_port_stm32f429_disco_v7/LinkerScript.ld
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU GCC Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"C:/Users/liangyongxiang/work/project/lvgl_v6_vs_v7/lv_port_stm32f429_disco_v7/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "lv_port_stm32f429_disco.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"C:/Users/Tanek/work/lvgl_size_compare/lv_port_stm32f429_disco_v7/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "lv_port_stm32f429_disco.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
